@@ -1,0 +1,22 @@
+{
+  "name": "nlp",
+  "version": "1.0.0",
+  "description": "Testing NLP features",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "keywords": [
+    "NLP"
+  ],
+  "author": "Tiago Aro",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "natural": "^0.6.2",
+    "natural-brain": "^0.3.2",
+    "nodemon": "^1.18.6"
+  }
+}
