@@ -1,4 +1,15 @@
+const natural = require('natural')
 const fs = require('fs')
+
+const addTrain = (text, context, filePath) => {
+	let _classifier = new natural.BayesClassifier()
+
+	loadClassifier(natural.BayesClassifier, filePath)
+		.then(result => _classifier = result)
+		.then(classifier => controller.newTrain(_classifier, text, context))
+		.then(classifier => controller.saveClassifier(_classifier, filePath))
+		.catch(console.log('Error'))
+}
 
 const loadClassifier = (classifier, filePath) => {
 
@@ -26,12 +37,12 @@ const saveClassifier = (classifier, filePath) => {
 	})
 }
 
-const addTrain = (classifier, text, context) => {
+const newTrain = (classifier, text, context) => {
 
 	return new Promise((resolve, reject) =>{
 		classifier.addDocument(text, context)
 		resolve(classifier)
-		reject()
+		reject(classifier)
 	})
 }
 
@@ -44,4 +55,5 @@ const checkFile = filePath => {
 	})
 }
 
-module.exports = {loadClassifier, saveClassifier, newTrain}
+
+module.exports = { addTrain}
