@@ -6,8 +6,8 @@ const addTrain = (text, context, filePath) => {
 
 	loadClassifier(natural.BayesClassifier, filePath)
 		.then(result => _classifier = result)
-		.then(classifier => controller.newTrain(_classifier, text, context))
-		.then(classifier => controller.saveClassifier(_classifier, filePath))
+		.then(classifier => newTrain(_classifier, text, context))
+		.then(classifier => saveClassifier(_classifier, filePath))
 		.catch(console.log('Error'))
 }
 
