@@ -18,20 +18,31 @@
 					<div class="card center-align">
 						<div class="card-content">
 
-							<span class="card-title">Enter new training</span>
+							<span class="card-title">Enter answer</span>
 
-							<form action="/train" method="post">
+							<form action="/answer" method="post">
+
 								<div class="row">
 									<div class="input-field">
-										<label for="trainText">Training text</label>
-										<textarea id="trainText" name="trainText" class="materialize-textarea"></textarea>
+										<select name="languages">
+											<option value="" disabled selected>Choose a language</option>
+											<option value="en">English</option>
+										</select>
+										<label>Language</label>
 									</div>
 								</div>
 
 								<div class="row">
 									<div class="input-field">
-										<label for="context">Training context</label>
-										<input id="context" name="context" type="text" class="validate">
+										<label for="answerText">Answer text</label>
+										<textarea id="answerText" name="answerText" class="materialize-textarea"></textarea>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="input-field">
+										<label for="context">Answer context</label>
+										<input id="context" name="context" type="text" class="validate"><%= context %>
 									</div>
 								</div>
 
@@ -43,7 +54,7 @@
 								</div>
 
 								<div class="card-action">
-									<button id="btnAddTrain" class="btn btn-up" type="submit">Add</button>
+									<button id="btnAddAnswer" class="btn btn-up" type="submit">Add</button>
 								</div>
 							</form>
 						</div>
