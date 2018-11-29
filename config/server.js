@@ -2,7 +2,6 @@ const express = require('express')
 const consign = require('consign')
 const bodyParser = require('body-parser')
 const expressValidator = require('express-validator')
-const chat = require('../chat/makeChat')
 const app = express()
 
 app.set('views', './app/client/views')
@@ -15,8 +14,9 @@ app.use(expressValidator())
 
 consign()
 	.include('./app/server/controller')
+	.then('./app/server/routes')
 	.into(app)
 
-const server = chat(app)
+module.exports = app
 
-module.exports = server
+
